@@ -5,7 +5,7 @@
     name: "{{ container.image }}"
     username: "{{ container.image_pull_user | default(omit) }}"
     password: "{{ container.image_pull_password | default(omit) }}"
-    force: yes
+    force: "{{ container.image_force | default(omit) }}"
   become: "yes"
   become_user: "{{ become_user }}"
   register: image_pull
